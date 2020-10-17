@@ -1,0 +1,38 @@
+{
+  "title": "slack",
+  "rules": [
+    {
+      "description": "control + tab :Move unread next channel or DM in slack.",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "down_arrow",
+              "modifiers": [
+                "option",
+                "shift"
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.tinyspeck\\.slackmacgap$"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

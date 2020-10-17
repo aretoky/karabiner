@@ -1,0 +1,28 @@
+{
+  "title": "semicolon to enter",
+  "rules":
+  [
+    {
+      "description": "semicolon to enter",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "return_or_enter"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
