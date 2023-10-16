@@ -1,10 +1,8 @@
 {
     "global": {
-        "ask_for_confirmation_before_quitting": true,
         "check_for_updates_on_startup": true,
         "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false,
-        "unsafe_ui": false
+        "show_profile_name_in_menu_bar": false
     },
     "profiles": [
         {
@@ -30,8 +28,7 @@
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
-                    "treat_as_built_in_keyboard": false
+                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
@@ -39,121 +36,97 @@
                     "from": {
                         "key_code": "f1"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "display_brightness_decrement"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "display_brightness_decrement"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f2"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "display_brightness_increment"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "display_brightness_increment"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f3"
                     },
-                    "to": [
-                        {
-                            "key_code": "mission_control"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "mission_control"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f4"
                     },
-                    "to": [
-                        {
-                            "key_code": "launchpad"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "launchpad"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f5"
                     },
-                    "to": [
-                        {
-                            "key_code": "illumination_decrement"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "illumination_decrement"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f6"
                     },
-                    "to": [
-                        {
-                            "key_code": "illumination_increment"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "illumination_increment"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f7"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "rewind"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "rewind"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f8"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "play_or_pause"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "play_or_pause"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f9"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "fastforward"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "fastforward"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f10"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "mute"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "mute"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f11"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "volume_decrement"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "volume_decrement"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f12"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "volume_increment"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "volume_increment"
+                    }
                 }
             ],
             "name": "Default profile",
@@ -164,7 +137,6 @@
             "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "country_code": 0,
-                "indicate_sticky_modifier_keys_state": true,
                 "mouse_key_xy_scale": 100
             }
         },
@@ -326,236 +298,13 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "メタキー+sでslack起動",
-                                "from": {
-                                    "key_code": "s"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Slack.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "メタキー+bでbiscuit起動",
-                                "from": {
-                                    "key_code": "b"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Biscuit.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "メタキー+eでiterm起動",
-                                "from": {
-                                    "key_code": "e"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'iTerm.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "メタキー+iでintelliJ起動",
-                                "from": {
-                                    "key_code": "i"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'IntelliJ IDEA.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "メタキー+gでchrome起動",
-                                "from": {
-                                    "key_code": "g"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Google Chrome.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "メタキー+aでactive monitor起動",
-                                "from": {
-                                    "key_code": "a"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Activity Monitor.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "eisuu",
                                         "type": "variable_if",
                                         "value": 1
                                     }
                                 ],
-                                "description": "EISUU+fでメタキー発動",
                                 "from": {
                                     "key_code": "f",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "press_application_select_key",
-                                                "value": 0
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "press_application_select_key",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "e",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "d",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -646,7 +395,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "alfredのclipboard",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -674,7 +422,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "iterm",
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": {
@@ -701,7 +448,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "セミコロンをEISU+;で。Enterにバインドした時用",
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
@@ -5191,6 +4937,39 @@
                         ]
                     },
                     {
+                        "description": "control + tab :Move unread next channel or DM in slack.",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.tinyspeck\\.slackmacgap$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "control"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "down_arrow",
+                                        "modifiers": [
+                                            "option",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "shift + control + tab :Move unread previous channel or DM in slack.",
                         "manipulators": [
                             {
@@ -5225,39 +5004,6 @@
                         ]
                     },
                     {
-                        "description": "control + tab :Move unread next channel or DM in slack.",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.tinyspeck\\.slackmacgap$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "control"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow",
-                                        "modifiers": [
-                                            "option",
-                                            "shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Capslockキー単独でGyazo起動",
                         "manipulators": [
                             {
@@ -5270,191 +5016,108 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Gyazo Video.app'"
-                                    }
-                                ],
-                                "type": "basic"
                             }
                         ]
                     }
                 ]
             },
-            "devices": [
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 635,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
-                    "treat_as_built_in_keyboard": false
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": false,
-                        "is_pointing_device": true,
-                        "product_id": 635,
-                        "vendor_id": 1452
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": [],
-                    "treat_as_built_in_keyboard": false
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 34304,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
-                    "treat_as_built_in_keyboard": false
-                }
-            ],
+            "devices": [],
             "fn_function_keys": [
                 {
                     "from": {
                         "key_code": "f1"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "display_brightness_decrement"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "display_brightness_decrement"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f2"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "display_brightness_increment"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "display_brightness_increment"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f3"
                     },
-                    "to": [
-                        {
-                            "key_code": "mission_control"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "mission_control"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f4"
                     },
-                    "to": [
-                        {
-                            "key_code": "launchpad"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "launchpad"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f5"
                     },
-                    "to": [
-                        {
-                            "key_code": "illumination_decrement"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "illumination_decrement"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f6"
                     },
-                    "to": [
-                        {
-                            "key_code": "illumination_increment"
-                        }
-                    ]
+                    "to": {
+                        "key_code": "illumination_increment"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f7"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "rewind"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "rewind"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f8"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "play_or_pause"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "play_or_pause"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f9"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "fast_forward"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "fast_forward"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f10"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "mute"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "mute"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f11"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "volume_decrement"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "volume_decrement"
+                    }
                 },
                 {
                     "from": {
                         "key_code": "f12"
                     },
-                    "to": [
-                        {
-                            "consumer_key_code": "volume_increment"
-                        }
-                    ]
+                    "to": {
+                        "consumer_key_code": "volume_increment"
+                    }
                 }
             ],
             "name": "try20201017",
@@ -5465,7 +5128,6 @@
             "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "country_code": 0,
-                "indicate_sticky_modifier_keys_state": true,
                 "mouse_key_xy_scale": 100
             }
         }

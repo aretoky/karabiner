@@ -14,6 +14,22 @@
                "shell_command": "open -a 'Gyazo.app'"
              }
            ]
+         },
+         {
+           "type": "basic",
+           "from": {
+             "key_code": "caps_lock",
+             "modifiers": {
+               "mandatory": [
+                 "shift"
+               ]
+             }
+           },
+           "to": [
+             {
+               "shell_command": "open -a 'Gyazo Video.app'"
+             }
+           ]
          }
        ]
      }

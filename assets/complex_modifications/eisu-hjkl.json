@@ -147,9 +147,153 @@
           ]
         },
         {
+          "description": "メタキー+sでslack起動",
+          "type": "basic",
+          "from": { "key_code": "s" },
+          "to": [
+            {
+              "shell_command": "open -a 'Slack.app'"
+            },
+            { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "press_application_select_key", "value": 1 }
+          ]
+        },
+        {
+          "description": "メタキー+bでbiscuit起動",
+          "type": "basic",
+          "from": { "key_code": "b" },
+          "to": [
+            {
+              "shell_command": "open -a 'Biscuit.app'"
+            },
+            { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "press_application_select_key", "value": 1 }
+          ]
+        },
+        {
+          "description": "メタキー+eでiterm起動",
+          "type": "basic",
+          "from": { "key_code": "e" },
+          "to": [
+            {
+              "shell_command": "open -a 'iTerm.app'"
+            },
+            { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "press_application_select_key", "value": 1 }
+          ]
+        },
+        {
+          "description": "メタキー+iでintelliJ起動",
+          "type": "basic",
+          "from": { "key_code": "i" },
+          "to": [
+            {
+              "shell_command": "open -a 'IntelliJ IDEA.app'"
+            },
+            { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "press_application_select_key", "value": 1 }
+          ]
+        },
+        {
+          "description": "メタキー+gでchrome起動",
+          "type": "basic",
+          "from": { "key_code": "g" },
+          "to": [
+            {
+              "shell_command": "open -a 'Google Chrome.app'"
+            },
+            { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "press_application_select_key", "value": 1 }
+          ]
+        },
+        {
+          "description": "メタキー+aでactive monitor起動",
+          "type": "basic",
+          "from": { "key_code": "a" },
+          "to": [
+            {
+              "shell_command": "open -a 'Activity Monitor.app'"
+            },
+            { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+          ],
+          "conditions": [
+            { "type": "variable_if", "name": "press_application_select_key", "value": 1 }
+          ]
+        },
+        {
+          "description": "EISUU+fでメタキー発動",
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers":{
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": { "name": "press_application_select_key", "value": 1 }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+            ],
+            "to_if_canceled": [
+              { "set_variable": { "name": "press_application_select_key", "value": 0 } }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_application_select_key",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+	    {
           "type": "basic",
           "from": { 
-            "key_code": "f",
+            "key_code": "e",
+            "modifiers":{
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            { 
+              "key_code": "escape"
+            }
+          ],
+          "conditions": [
+            { 
+              "type": "variable_if", 
+              "name": "eisuu", 
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { 
+            "key_code": "d",
             "modifiers":{
               "optional": [
                 "any"
@@ -169,7 +313,7 @@
             }
           ]
         },
-	{
+	    {
           "type": "basic",
           "from": { 
             "key_code": "n",
@@ -239,7 +383,7 @@
           ]
         },
         {
-          "_comment": "alfredのclipboard",
+          "description": "alfredのclipboard",
           "type": "basic",
           "from": { 
             "key_code": "u",
@@ -264,7 +408,7 @@
           ]
         },
         {
-          "_comment": "iterm",
+          "description": "iterm",
           "type": "basic",
           "from": { 
             "key_code": "q",
@@ -289,7 +433,7 @@
           ]
         },
         {
-          "_comment": "セミコロンをEISU+;で。Enterにバインドした時用",
+          "description": "セミコロンをEISU+;で。Enterにバインドした時用",
           "type": "basic",
           "from": { 
             "key_code": "semicolon",
