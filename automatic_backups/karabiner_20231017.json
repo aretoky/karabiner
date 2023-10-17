@@ -331,31 +331,6 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "メタキー+tでtaskchute cloud起動",
-                                "from": {
-                                    "key_code": "t"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'TaskChute Cloud.app'"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "description": "メタキー+sでslack起動",
                                 "from": {
                                     "key_code": "s"
