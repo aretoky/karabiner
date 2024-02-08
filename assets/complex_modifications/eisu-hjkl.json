@@ -410,13 +410,38 @@
           "to": [
             { 
               "key_code": "u",
-              "modifiers": ["control", "option"]
+              "modifiers": ["control", "option", "shift", "command"]
             }
           ],
           "conditions": [
             { 
               "type": "variable_if", 
               "name": "eisuu", 
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "raycastのSwitch Window",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers":{
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "s",
+              "modifiers": ["control", "option", "shift", "command"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
               "value": 1
             }
           ]
