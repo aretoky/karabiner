@@ -15,7 +15,14 @@
                 "name": "eisuu",
                 "value": 1
               }
-            },
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ],
+          "to_if_alone": [
             {
               "key_code": "japanese_eisuu"
             }
@@ -124,6 +131,9 @@
           "to": [
             {
               "key_code": "escape"
+            },
+            {
+              "key_code": "japanese_eisuu"
             }
           ],
           "conditions": [
@@ -255,7 +265,7 @@
           "from": { "key_code": "g" },
           "to": [
             {
-              "shell_command": "open -a 'Google Chrome.app'"
+              "shell_command": "open -a 'Arc.app'"
             },
             {
               "set_variable": {
@@ -279,6 +289,29 @@
           "to": [
             {
               "shell_command": "open -a 'Activity Monitor.app'"
+            },
+            {
+              "set_variable": {
+                "name": "press_application_select_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_application_select_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "メタキー+cでCosense起動",
+          "type": "basic",
+          "from": { "key_code": "c" },
+          "to": [
+            {
+              "shell_command": "open -a '/Users/aretoky/Applications/Chrome Apps.localized/Scrapbox.app'"
             },
             {
               "set_variable": {
