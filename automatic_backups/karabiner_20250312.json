@@ -3931,75 +3931,6 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "@ to Option when held, normal @ when tapped",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            { "input_source_id": "^com\\.apple\\.keylayout\\.US$" },
-                                            { "input_mode_id": "^com\\.apple\\.inputmethod\\.Japanese\\.FullWidthRoman" },
-                                            { "language": "^en$" }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 175,
-                                    "basic.to_if_held_down_threshold_milliseconds": 75
-                                },
-                                "to_if_alone": [{ "key_code": "open_bracket" }],
-                                "to_if_held_down": [{ "key_code": "left_option" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "input_sources": [
-                                            { "input_source_id": "^com\\.apple\\.inputmethod\\.Japanese$" },
-                                            { "input_mode_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.RoamajiTyping\\.Japanese" },
-                                            { "language": "^ja$" }
-                                        ],
-                                        "type": "input_source_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 175,
-                                    "basic.to_if_held_down_threshold_milliseconds": 75
-                                },
-                                "to_if_alone": [{ "key_code": "comma" }],
-                                "to_if_held_down": [{ "key_code": "left_option" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Tab to Option when held, normal Tab when tapped",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 175,
-                                    "basic.to_if_held_down_threshold_milliseconds": 75
-                                },
-                                "to_if_alone": [{ "key_code": "tab" }],
-                                "to_if_held_down": [{ "key_code": "left_option" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Change EISU + *",
                         "manipulators": [
                             {
@@ -4105,32 +4036,6 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "modifiers": ["command"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "eisuu",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
                                         "name": "press_application_select_key",
                                         "type": "variable_if",
                                         "value": 1
@@ -4197,48 +4102,12 @@
                                         "name": "press_application_select_key",
                                         "type": "variable_if",
                                         "value": 1
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij$"
-                                        ],
-                                        "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "メタキー+eでGhostty起動(IntelliJ以外場合)",
+                                "description": "メタキー+eでiterm起動",
                                 "from": { "key_code": "e" },
                                 "to": [
-                                    { "shell_command": "open -a 'Ghostty.app'" },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "メタキー+eでIntelliJターミナル起動(IntelliJの場合)",
-                                "from": { "key_code": "e" },
-                                "to": [
-                                    {
-                                        "key_code": "f12",
-                                        "modifiers": ["option", "fn"]
-                                    },
+                                    { "shell_command": "open -a 'iTerm.app'" },
                                     {
                                         "set_variable": {
                                             "name": "press_application_select_key",
@@ -4277,10 +4146,10 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "メタキー+gでChrome起動",
+                                "description": "メタキー+gでArc起動",
                                 "from": { "key_code": "g" },
                                 "to": [
-                                    { "shell_command": "open -a 'Google Chrome.app'" },
+                                    { "shell_command": "open -a 'Arc.app'" },
                                     {
                                         "set_variable": {
                                             "name": "press_application_select_key",
@@ -4381,145 +4250,6 @@
                             {
                                 "conditions": [
                                     {
-                                        "name": "press_gyazo_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Gyazoキー+cでキャプチャ",
-                                "from": { "key_code": "c" },
-                                "to": [
-                                    {
-                                        "key_code": "c",
-                                        "modifiers": ["option", "shift"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_gyazo_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_gyazo_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Gyazoキー+aでキャプチャ active window",
-                                "from": { "key_code": "a" },
-                                "to": [
-                                    {
-                                        "key_code": "a",
-                                        "modifiers": ["option", "shift"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_gyazo_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_gyazo_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Gyazoキー+vでキャプチャ Video",
-                                "from": { "key_code": "v" },
-                                "to": [
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": ["option", "shift"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_gyazo_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_gyazo_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Gyazoキー+oで最新のGyazoを開く",
-                                "from": { "key_code": "o" },
-                                "to": [
-                                    { "shell_command": "open 'https://gyazo.com/latest'" },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_gyazo_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_gyazo_select_key",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "EISUU+gでGyazoキー発動",
-                                "from": {
-                                    "key_code": "g",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "press_gyazo_select_key",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "press_gyazo_select_key",
-                                                "value": 0
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "press_gyazo_select_key",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
                                         "name": "eisuu",
                                         "type": "variable_if",
                                         "value": 1
@@ -4571,7 +4301,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "comma",
+                                    "key_code": "i",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "page_up" }],
@@ -4586,7 +4316,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "period",
+                                    "key_code": "o",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "page_down" }],
@@ -4600,67 +4330,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "close_bracket" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "o",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "backslash" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "international3" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "quote",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "key_code": "international1" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "eisuu",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Raycastのclipboard",
+                                "description": "alfredのclipboard",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": { "optional": ["any"] }
@@ -8153,7 +7823,6 @@
                 }
             ],
             "name": "try20250310",
-            "selected": true,
             "simple_modifications": [
                 {
                     "from": { "key_code": "0" },
@@ -8161,11 +7830,11 @@
                 },
                 {
                     "from": { "key_code": "6" },
-                    "to": [{ "key_code": "6" }]
+                    "to": [{ "key_code": "international3" }]
                 },
                 {
                     "from": { "key_code": "7" },
-                    "to": [{ "key_code": "international3" }]
+                    "to": [{ "key_code": "6" }]
                 },
                 {
                     "from": { "key_code": "8" },
@@ -12357,6 +12026,7 @@
                 }
             ],
             "name": "try20250310 (copy)",
+            "selected": true,
             "simple_modifications": [
                 {
                     "from": { "apple_vendor_top_case_key_code": "keyboard_fn" },

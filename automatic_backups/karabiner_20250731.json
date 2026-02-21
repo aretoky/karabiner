@@ -4197,48 +4197,12 @@
                                         "name": "press_application_select_key",
                                         "type": "variable_if",
                                         "value": 1
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij$"
-                                        ],
-                                        "type": "frontmost_application_unless"
                                     }
                                 ],
-                                "description": "メタキー+eでGhostty起動(IntelliJ以外場合)",
+                                "description": "メタキー+eでiterm起動",
                                 "from": { "key_code": "e" },
                                 "to": [
-                                    { "shell_command": "open -a 'Ghostty.app'" },
-                                    {
-                                        "set_variable": {
-                                            "name": "press_application_select_key",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "press_application_select_key",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    },
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.jetbrains\\.intellij$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "description": "メタキー+eでIntelliJターミナル起動(IntelliJの場合)",
-                                "from": { "key_code": "e" },
-                                "to": [
-                                    {
-                                        "key_code": "f12",
-                                        "modifiers": ["option", "fn"]
-                                    },
+                                    { "shell_command": "open -a 'iTerm.app'" },
                                     {
                                         "set_variable": {
                                             "name": "press_application_select_key",
