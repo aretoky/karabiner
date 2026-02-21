@@ -1,0 +1,28 @@
+{
+  "title": "Switch to English when Chrome is focused",
+  "rules": [
+    {
+      "description": "When focusing Chrome, switch to U.S. input",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "vk_none" },
+          "to": [
+            {
+              "select_input_source": {
+                "language": "en",
+                "input_source_id": "com.apple.keylayout.ABC"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

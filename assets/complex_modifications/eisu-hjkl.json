@@ -144,13 +144,41 @@
             }
           ]
         },
+	{
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["command"]
+            },
+            {
+              "set_variable": {
+                "name": "eisuu",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
         {
           "description": "メタキー+tでtaskchute cloud起動",
           "type": "basic",
           "from": { "key_code": "t" },
           "to": [
             {
-              "shell_command": "open -a 'TaskChute Cloud.app'"
+              "shell_command": "open -a 'TaskChute Cloud 2.app'"
             },
             {
               "set_variable": {
@@ -214,12 +242,12 @@
           ]
         },
         {
-          "description": "メタキー+eでiterm起動",
+          "description": "メタキー+eでGhostty起動(IntelliJ以外場合)",
           "type": "basic",
           "from": { "key_code": "e" },
           "to": [
             {
-              "shell_command": "open -a 'iTerm.app'"
+              "shell_command": "open -a 'Ghostty.app'"
             },
             {
               "set_variable": {
@@ -233,9 +261,45 @@
               "type": "variable_if",
               "name": "press_application_select_key",
               "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\.intellij$"
+              ]
             }
           ]
         },
+        {
+          "description": "メタキー+eでIntelliJターミナル起動(IntelliJの場合)",
+          "type": "basic",
+          "from": { "key_code": "e" },
+          "to": [
+            {
+              "key_code": "f12",
+              "modifiers": ["option", "fn"]
+            },
+            {
+              "set_variable": {
+                "name": "press_application_select_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_application_select_key",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\.intellij$"
+              ]
+            }
+          ]
+        },        
         {
           "description": "メタキー+iでintelliJ起動",
           "type": "basic",
@@ -260,12 +324,12 @@
           ]
         },
         {
-          "description": "メタキー+gでchrome起動",
+          "description": "メタキー+gでChrome起動",
           "type": "basic",
           "from": { "key_code": "g" },
           "to": [
             {
-              "shell_command": "open -a 'Arc.app'"
+              "shell_command": "open -a 'Google Chrome.app'"
             },
             {
               "set_variable": {
@@ -311,7 +375,7 @@
           "from": { "key_code": "c" },
           "to": [
             {
-              "shell_command": "open -a '/Users/aretoky/Applications/Chrome Apps.localized/Scrapbox.app'"
+              "shell_command": "open -a '/Users/aretoky/Applications/Chrome Apps.localized/Cosense.app'"
             },
             {
               "set_variable": {
@@ -367,6 +431,149 @@
             {
               "type": "variable_if",
               "name": "press_application_select_key",
+              "value": 0
+            },
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Gyazoキー+cでキャプチャ",
+          "type": "basic",
+          "from": { "key_code": "c" },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": ["option", "shift"]
+            },
+            {
+              "set_variable": {
+                "name": "press_gyazo_select_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_gyazo_select_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Gyazoキー+aでキャプチャ active window",
+          "type": "basic",
+          "from": { "key_code": "a" },
+          "to": [
+            {
+              "key_code": "a",
+              "modifiers": ["option", "shift"]
+            },
+            {
+              "set_variable": {
+                "name": "press_gyazo_select_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_gyazo_select_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Gyazoキー+vでキャプチャ Video",
+          "type": "basic",
+          "from": { "key_code": "v" },
+          "to": [
+            {
+              "key_code": "v",
+              "modifiers": ["option", "shift"]
+            },
+            {
+              "set_variable": {
+                "name": "press_gyazo_select_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_gyazo_select_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Gyazoキー+oで最新のGyazoを開く",
+          "type": "basic",
+          "from": { "key_code": "o" },
+          "to": [
+            {
+              "shell_command": "open 'https://gyazo.com/latest'"
+            },
+            {
+              "set_variable": {
+                "name": "press_gyazo_select_key",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_gyazo_select_key",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "EISUU+gでGyazoキー発動",
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "press_gyazo_select_key",
+                "value": 1
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "press_gyazo_select_key",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "press_gyazo_select_key",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "press_gyazo_select_key",
               "value": 0
             },
             {
@@ -442,7 +649,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "i",
+            "key_code": "comma",
             "modifiers": {
               "optional": ["any"]
             }
@@ -463,7 +670,7 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "o",
+            "key_code": "period",
             "modifiers": {
               "optional": ["any"]
             }
@@ -482,7 +689,91 @@
           ]
         },
         {
-          "description": "alfredのclipboard",
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "close_bracket"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "backslash"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international3"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international1"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "Raycastのclipboard",
           "type": "basic",
           "from": {
             "key_code": "u",
