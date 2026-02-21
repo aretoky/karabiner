@@ -1,0 +1,117 @@
+{
+  "title": "@ to Option When Held",
+  "rules": [
+    {
+      "description": "@ to Option when held, normal @ when tapped",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "open_bracket"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "conditions": [
+            {
+                "type": "input_source_if",
+                "input_sources": [
+                {
+                    "input_source_id": "^com\\.apple\\.keylayout\\.US$"
+                },
+                {
+                    "input_mode_id": "^com\\.apple\\.inputmethod\\.Japanese\\.FullWidthRoman"
+                },
+                {
+                    "language": "^en$"
+                }
+                ]
+            }
+            ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 175,
+            "basic.to_if_held_down_threshold_milliseconds": 75
+          }
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "open_bracket",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "comma"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "conditions": [
+            {
+                "type": "input_source_if",
+                "input_sources": [
+                {
+                    "input_source_id": "^com\\.apple\\.inputmethod\\.Japanese$"
+                },
+                {
+                    "input_mode_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.RoamajiTyping\\.Japanese"
+                },
+                {
+                    "language": "^ja$"
+                }
+                ]
+            }
+            ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 175,
+            "basic.to_if_held_down_threshold_milliseconds": 75
+          }
+        }
+        
+      ]
+    },
+    {
+      "description": "Tab to Option when held, normal Tab when tapped",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "tab",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "tab"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 175,
+            "basic.to_if_held_down_threshold_milliseconds": 75
+          }
+        }
+      ]
+    }
+  ]
+}
