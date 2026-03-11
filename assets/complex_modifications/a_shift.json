@@ -1,0 +1,29 @@
+{
+  "title": "A key dual role",
+  "rules": [
+    {
+      "description": "aキー: タップでa、長押しでShift（英語入力時のみ）",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "a", "modifiers": { "optional": ["any"] } },
+          "to": [{ "key_code": "left_shift" }],
+          "to_if_alone": [{ "key_code": "a" }],
+          "conditions": [
+            { "type": "variable_unless", "name": "space_layer", "value": 1 },
+            {
+              "type": "input_source_unless",
+              "input_sources": [
+                { "input_mode_id": "com.apple.inputmethod.Japanese" },
+                { "input_mode_id": "com.apple.inputmethod.Japanese.Hiragana" },
+                { "input_mode_id": "com.apple.inputmethod.Japanese.Katakana" },
+                { "input_mode_id": "com.apple.inputmethod.Japanese.HalfWidthKana" }
+              ]
+            }
+          ],
+          "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 }
+        }
+      ]
+    }
+  ]
+}
