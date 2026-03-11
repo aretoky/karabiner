@@ -1,0 +1,33 @@
+{
+  "title": "Control to Escape When Tapped",
+  "rules": [
+    {
+      "description": "Control to Escape when tapped, normal Control when held",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to_if_alone": [
+            {
+              "key_code": "escape"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 100,
+            "basic.to_if_held_down_threshold_milliseconds": 50
+          }
+        }
+      ]
+    }
+  ]
+}

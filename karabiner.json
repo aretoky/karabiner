@@ -3931,6 +3931,43 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "左シフト単独タップでEnter（100ms以内）、ホールドでShift",
+                        "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 100,
+                                    "basic.to_if_held_down_threshold_milliseconds": 75
+                                },
+                                "to_if_alone": [{ "key_code": "return_or_enter" }],
+                                "to_if_held_down": [{ "key_code": "left_shift" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Control to Escape when tapped, normal Control when held",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 100,
+                                    "basic.to_if_held_down_threshold_milliseconds": 50
+                                },
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "to_if_held_down": [{ "key_code": "left_control" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "@ to Option when held, normal @ when tapped",
                         "manipulators": [
                             {
@@ -4734,6 +4771,28 @@
                         ]
                     },
                     {
+                        "description": "スペース数字レイヤー: セミコロンShift",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
+                                "to": [{ "key_code": "left_shift" }],
+                                "to_if_alone": [{ "key_code": "0" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "スペース数字レイヤー: キーマッピング",
                         "manipulators": [
                             {
@@ -4746,7 +4805,7 @@
                                 ],
                                 "from": {
                                     "key_code": "a",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "1" }],
                                 "type": "basic"
@@ -4761,7 +4820,7 @@
                                 ],
                                 "from": {
                                     "key_code": "s",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "2" }],
                                 "type": "basic"
@@ -4776,7 +4835,7 @@
                                 ],
                                 "from": {
                                     "key_code": "d",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "3" }],
                                 "type": "basic"
@@ -4791,7 +4850,7 @@
                                 ],
                                 "from": {
                                     "key_code": "f",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "4" }],
                                 "type": "basic"
@@ -4806,7 +4865,7 @@
                                 ],
                                 "from": {
                                     "key_code": "g",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "5" }],
                                 "type": "basic"
@@ -4821,7 +4880,7 @@
                                 ],
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "6" }],
                                 "type": "basic"
@@ -4836,7 +4895,7 @@
                                 ],
                                 "from": {
                                     "key_code": "j",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "7" }],
                                 "type": "basic"
@@ -4851,9 +4910,34 @@
                                 ],
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "8" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "space_shift",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": ["left_shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -4866,7 +4950,7 @@
                                 ],
                                 "from": {
                                     "key_code": "l",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "9" }],
                                 "type": "basic"
@@ -4880,10 +4964,10 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "key_code": "quote",
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "0" }],
+                                "to": [{ "key_code": "hyphen" }],
                                 "type": "basic"
                             },
                             {
@@ -4895,10 +4979,25 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "quote",
-                                    "modifiers": { "optional": ["shift"] }
+                                    "key_code": "slash",
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "hyphen" }],
+                                "to": [{ "key_code": "equal_sign" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "equal_sign" }],
                                 "type": "basic"
                             }
                         ]
@@ -8250,14 +8349,16 @@
                         ]
                     },
                     {
-                        "description": "semicolon to enter",
+                        "description": "セミコロン: タップでEnter、長押しでShift",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "semicolon",
-                                    "modifiers": { "optional": ["caps_lock"] }
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "return_or_enter" }],
+                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
+                                "to": [{ "key_code": "left_shift" }],
+                                "to_if_alone": [{ "key_code": "return_or_enter" }],
                                 "type": "basic"
                             }
                         ]
