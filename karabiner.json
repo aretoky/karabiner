@@ -4771,7 +4771,7 @@
                         ]
                     },
                     {
-                        "description": "スペース数字レイヤー: セミコロン or a=>Shift",
+                        "description": "スペース数字レイヤー: セミコロン=>Shift",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -4788,23 +4788,6 @@
                                 "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
                                 "to": [{ "key_code": "left_shift" }],
                                 "to_if_alone": [{ "key_code": "0" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "space_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
-                                "to": [{ "key_code": "left_shift" }],
-                                "to_if_alone": [{ "key_code": "1" }],
                                 "type": "basic"
                             }
                         ]
@@ -5015,6 +4998,41 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "key_code": "equal_sign" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "semicolon",
+                                        "modifiers": ["left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "international3" }],
                                 "type": "basic"
                             }
                         ]
@@ -8366,7 +8384,7 @@
                         ]
                     },
                     {
-                        "description": "セミコロン: タップでEnter(a タップでa)、長押しでShift",
+                        "description": "セミコロン: タップでEnter、長押しでShift",
                         "manipulators": [
                             {
                                 "from": {
@@ -8376,16 +8394,6 @@
                                 "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
                                 "to": [{ "key_code": "left_shift" }],
                                 "to_if_alone": [{ "key_code": "return_or_enter" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": { "basic.to_if_alone_timeout_milliseconds": 200 },
-                                "to": [{ "key_code": "left_shift" }],
-                                "to_if_alone": [{ "key_code": "a" }],
                                 "type": "basic"
                             }
                         ]
