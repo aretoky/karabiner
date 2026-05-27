@@ -37,6 +37,217 @@
           ]
         },
         {
+          "description": "英数+かなキーで eisu_kana_layer 発動",
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "eisu_kana_layer",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "japanese_kana"
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "eisu_kana_layer",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisuu",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+a: 明るさダウン",
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "display_brightness_decrement"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+s: 明るさアップ",
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "display_brightness_increment"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+h: メディア巻き戻し",
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "rewind"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+j: 再生/一時停止",
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "play_or_pause"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+k: メディア早送り",
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "fastforward"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+l: ミュート",
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "mute"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+;: 音量ダウン",
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "volume_decrement"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "description": "英数+かな+:: 音量アップ",
+          "type": "basic",
+          "from": {
+            "key_code": "quote",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "consumer_key_code": "volume_increment"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "eisu_kana_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
           "type": "basic",
           "from": {
             "key_code": "h",
@@ -53,6 +264,11 @@
             {
               "type": "variable_if",
               "name": "eisuu",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
               "value": 1
             }
           ]
@@ -75,6 +291,11 @@
               "type": "variable_if",
               "name": "eisuu",
               "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
+              "value": 1
             }
           ]
         },
@@ -96,6 +317,11 @@
               "type": "variable_if",
               "name": "eisuu",
               "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
+              "value": 1
             }
           ]
         },
@@ -116,6 +342,11 @@
             {
               "type": "variable_if",
               "name": "eisuu",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
               "value": 1
             }
           ]
@@ -168,6 +399,11 @@
             {
               "type": "variable_if",
               "name": "eisuu",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
               "value": 1
             }
           ]
@@ -242,12 +478,12 @@
           ]
         },
         {
-          "description": "メタキー+eでGhostty起動(IntelliJ以外場合)",
+          "description": "メタキー+eでcmux起動(IntelliJ以外場合)",
           "type": "basic",
           "from": { "key_code": "e" },
           "to": [
             {
-              "shell_command": "open -a 'Ghostty.app'"
+              "shell_command": "open -a 'cmux.app'"
             },
             {
               "set_variable": {
@@ -769,6 +1005,11 @@
               "type": "variable_if",
               "name": "eisuu",
               "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
+              "value": 1
             }
           ]
         },
@@ -815,6 +1056,11 @@
               "type": "variable_if",
               "name": "eisuu",
               "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
+              "value": 1
             }
           ]
         },
@@ -859,6 +1105,11 @@
             {
               "type": "variable_if",
               "name": "eisuu",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "eisu_kana_layer",
               "value": 1
             }
           ]

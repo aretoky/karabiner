@@ -2,6 +2,71 @@
   "title": "Space Number Layer",
   "rules": [
     {
+      "description": "スペース数字レイヤー: セミコロンShift",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "semicolon",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift"
+            },
+            {
+              "set_variable": {
+                "name": "space_shift",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0"
+            },
+            {
+              "set_variable": {
+                "name": "space_shift",
+                "value": 0
+              }
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_invoked": [
+              {
+                "set_variable": {
+                  "name": "space_shift",
+                  "value": 0
+                }
+              }
+            ],
+            "to_if_canceled": [
+              {
+                "set_variable": {
+                  "name": "space_shift",
+                  "value": 0
+                }
+              }
+            ]
+          },
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "space_layer",
+              "value": 1
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 200,
+            "basic.to_delayed_action_delay_milliseconds": 1000
+          }
+        }
+      ]
+    },
+    {
       "description": "スペース数字レイヤー: キーマッピング",
       "manipulators": [
         {
@@ -9,7 +74,7 @@
           "from": {
             "key_code": "a",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -30,7 +95,7 @@
           "from": {
             "key_code": "s",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -51,7 +116,7 @@
           "from": {
             "key_code": "d",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -72,7 +137,7 @@
           "from": {
             "key_code": "f",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -93,7 +158,7 @@
           "from": {
             "key_code": "g",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -114,7 +179,7 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -135,7 +200,7 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -156,7 +221,7 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -177,7 +242,34 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "9",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "space_layer",
+              "value": 1
+            },
+            {
+              "type": "variable_if",
+              "name": "space_shift",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": ["any"]
             }
           },
           "to": [
@@ -196,14 +288,14 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "semicolon",
+            "key_code": "quote",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "0"
+              "key_code": "hyphen"
             }
           ],
           "conditions": [
@@ -217,14 +309,78 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "quote",
+            "key_code": "slash",
             "modifiers": {
-              "optional": ["shift"]
+              "optional": ["any"]
             }
           },
           "to": [
             {
-              "key_code": "hyphen"
+              "key_code": "equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "space_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "equal_sign"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "space_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "semicolon",
+              "modifiers": ["left_shift"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "space_layer",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": ["any"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "international3"
             }
           ],
           "conditions": [
