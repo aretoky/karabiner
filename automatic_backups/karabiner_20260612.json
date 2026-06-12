@@ -4628,7 +4628,7 @@
                                 "description": "メタキー+tでtaskchute cloud起動",
                                 "from": { "key_code": "t" },
                                 "to": [
-                                    { "shell_command": "open -a 'TaskChute Cloud.app'" },
+                                    { "shell_command": "open -a 'TaskChute Cloud 2.app'" },
                                     {
                                         "set_variable": {
                                             "name": "press_application_select_key",
