@@ -77,7 +77,9 @@
           "from": {
             "key_code": "a",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -99,7 +101,9 @@
           "from": {
             "key_code": "s",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -121,7 +125,9 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -143,7 +149,9 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -165,7 +173,9 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -187,7 +197,9 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -209,7 +221,9 @@
           "from": {
             "key_code": "semicolon",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -231,7 +245,9 @@
           "from": {
             "key_code": "quote",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -252,7 +268,9 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -278,7 +296,9 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -304,7 +324,9 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -330,7 +352,9 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -356,7 +380,9 @@
           "from": {
             "key_code": "e",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -375,18 +401,22 @@
             }
           ]
         },
-	{
+        {
           "type": "basic",
           "from": {
             "key_code": "a",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
             {
               "key_code": "spacebar",
-              "modifiers": ["command"]
+              "modifiers": [
+                "command"
+              ]
             },
             {
               "set_variable": {
@@ -411,10 +441,12 @@
         {
           "description": "メタキー+tでtaskchute cloud起動",
           "type": "basic",
-          "from": { "key_code": "t" },
+          "from": {
+            "key_code": "t"
+          },
           "to": [
             {
-              "shell_command": "open -a 'TaskChute Cloud 2.app'"
+              "shell_command": "open -a 'TaskChute Cloud.app'"
             },
             {
               "set_variable": {
@@ -434,7 +466,9 @@
         {
           "description": "メタキー+sでslack起動",
           "type": "basic",
-          "from": { "key_code": "s" },
+          "from": {
+            "key_code": "s"
+          },
           "to": [
             {
               "shell_command": "open -a 'Slack.app'"
@@ -457,7 +491,9 @@
         {
           "description": "メタキー+bでbiscuit起動",
           "type": "basic",
-          "from": { "key_code": "b" },
+          "from": {
+            "key_code": "b"
+          },
           "to": [
             {
               "shell_command": "open -a 'Biscuit.app'"
@@ -480,7 +516,9 @@
         {
           "description": "メタキー+eでcmux起動(IntelliJ以外場合)",
           "type": "basic",
-          "from": { "key_code": "e" },
+          "from": {
+            "key_code": "e"
+          },
           "to": [
             {
               "shell_command": "open -a 'cmux.app'"
@@ -509,11 +547,16 @@
         {
           "description": "メタキー+eでIntelliJターミナル起動(IntelliJの場合)",
           "type": "basic",
-          "from": { "key_code": "e" },
+          "from": {
+            "key_code": "e"
+          },
           "to": [
             {
               "key_code": "f12",
-              "modifiers": ["option", "fn"]
+              "modifiers": [
+                "option",
+                "fn"
+              ]
             },
             {
               "set_variable": {
@@ -535,11 +578,13 @@
               ]
             }
           ]
-        },        
+        },
         {
           "description": "メタキー+iでintelliJ起動",
           "type": "basic",
-          "from": { "key_code": "i" },
+          "from": {
+            "key_code": "i"
+          },
           "to": [
             {
               "shell_command": "open -a 'IntelliJ IDEA.app'"
@@ -562,7 +607,9 @@
         {
           "description": "メタキー+gでChrome起動",
           "type": "basic",
-          "from": { "key_code": "g" },
+          "from": {
+            "key_code": "g"
+          },
           "to": [
             {
               "shell_command": "open -a 'Google Chrome.app'"
@@ -585,7 +632,9 @@
         {
           "description": "メタキー+aでactive monitor起動",
           "type": "basic",
-          "from": { "key_code": "a" },
+          "from": {
+            "key_code": "a"
+          },
           "to": [
             {
               "shell_command": "open -a 'Activity Monitor.app'"
@@ -608,7 +657,9 @@
         {
           "description": "メタキー+cでCosense起動",
           "type": "basic",
-          "from": { "key_code": "c" },
+          "from": {
+            "key_code": "c"
+          },
           "to": [
             {
               "shell_command": "open -a '/Users/aretoky/Applications/Chrome Apps.localized/Cosense.app'"
@@ -634,7 +685,9 @@
           "from": {
             "key_code": "f",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -679,11 +732,16 @@
         {
           "description": "Gyazoキー+cでキャプチャ",
           "type": "basic",
-          "from": { "key_code": "c" },
+          "from": {
+            "key_code": "c"
+          },
           "to": [
             {
               "key_code": "c",
-              "modifiers": ["option", "shift"]
+              "modifiers": [
+                "option",
+                "shift"
+              ]
             },
             {
               "set_variable": {
@@ -703,11 +761,16 @@
         {
           "description": "Gyazoキー+aでキャプチャ active window",
           "type": "basic",
-          "from": { "key_code": "a" },
+          "from": {
+            "key_code": "a"
+          },
           "to": [
             {
               "key_code": "a",
-              "modifiers": ["option", "shift"]
+              "modifiers": [
+                "option",
+                "shift"
+              ]
             },
             {
               "set_variable": {
@@ -727,11 +790,16 @@
         {
           "description": "Gyazoキー+vでキャプチャ Video",
           "type": "basic",
-          "from": { "key_code": "v" },
+          "from": {
+            "key_code": "v"
+          },
           "to": [
             {
               "key_code": "v",
-              "modifiers": ["option", "shift"]
+              "modifiers": [
+                "option",
+                "shift"
+              ]
             },
             {
               "set_variable": {
@@ -751,7 +819,9 @@
         {
           "description": "Gyazoキー+oで最新のGyazoを開く",
           "type": "basic",
-          "from": { "key_code": "o" },
+          "from": {
+            "key_code": "o"
+          },
           "to": [
             {
               "shell_command": "open 'https://gyazo.com/latest'"
@@ -777,7 +847,9 @@
           "from": {
             "key_code": "g",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -824,7 +896,9 @@
           "from": {
             "key_code": "e",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -845,7 +919,9 @@
           "from": {
             "key_code": "d",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -866,7 +942,9 @@
           "from": {
             "key_code": "n",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -887,7 +965,9 @@
           "from": {
             "key_code": "comma",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -908,7 +988,9 @@
           "from": {
             "key_code": "period",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -929,7 +1011,9 @@
           "from": {
             "key_code": "i",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -950,7 +1034,9 @@
           "from": {
             "key_code": "o",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -971,7 +1057,9 @@
           "from": {
             "key_code": "open_bracket",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -992,7 +1080,9 @@
           "from": {
             "key_code": "quote",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -1019,13 +1109,20 @@
           "from": {
             "key_code": "u",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
             {
               "key_code": "u",
-              "modifiers": ["control", "option", "shift", "command"]
+              "modifiers": [
+                "control",
+                "option",
+                "shift",
+                "command"
+              ]
             }
           ],
           "conditions": [
@@ -1042,13 +1139,20 @@
           "from": {
             "key_code": "s",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
             {
               "key_code": "s",
-              "modifiers": ["control", "option", "shift", "command"]
+              "modifiers": [
+                "control",
+                "option",
+                "shift",
+                "command"
+              ]
             }
           ],
           "conditions": [
@@ -1070,13 +1174,17 @@
           "from": {
             "key_code": "q",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
             {
               "key_code": "spacebar",
-              "modifiers": ["control"]
+              "modifiers": [
+                "control"
+              ]
             }
           ],
           "conditions": [
@@ -1093,7 +1201,9 @@
           "from": {
             "key_code": "semicolon",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
