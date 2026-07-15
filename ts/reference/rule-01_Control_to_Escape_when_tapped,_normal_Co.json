@@ -1,0 +1,33 @@
+{
+  "description": "Control to Escape when tapped, normal Control when held",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "left_control",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 100,
+        "basic.to_if_held_down_threshold_milliseconds": 50
+      },
+      "to_if_alone": [
+        {
+          "key_code": "escape"
+        },
+        {
+          "key_code": "japanese_eisuu"
+        }
+      ],
+      "to_if_held_down": [
+        {
+          "key_code": "left_control"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

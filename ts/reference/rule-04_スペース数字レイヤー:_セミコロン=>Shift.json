@@ -1,0 +1,36 @@
+{
+  "description": "スペース数字レイヤー: セミコロン=>Shift",
+  "manipulators": [
+    {
+      "conditions": [
+        {
+          "name": "space_layer",
+          "type": "variable_if",
+          "value": 1
+        }
+      ],
+      "from": {
+        "key_code": "semicolon",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 200
+      },
+      "to": [
+        {
+          "key_code": "left_shift"
+        }
+      ],
+      "to_if_alone": [
+        {
+          "key_code": "0"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

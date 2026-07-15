@@ -1,0 +1,29 @@
+{
+  "description": "セミコロン: タップでEnter、長押しでShift",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "semicolon",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 200
+      },
+      "to": [
+        {
+          "key_code": "left_shift"
+        }
+      ],
+      "to_if_alone": [
+        {
+          "key_code": "return_or_enter"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

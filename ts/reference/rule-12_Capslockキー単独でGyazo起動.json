@@ -1,0 +1,32 @@
+{
+  "description": "Capslockキー単独でGyazo起動",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "caps_lock"
+      },
+      "to_if_alone": [
+        {
+          "shell_command": "open /Applications/Gyazo.app;"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "from": {
+        "key_code": "caps_lock",
+        "modifiers": {
+          "mandatory": [
+            "shift"
+          ]
+        }
+      },
+      "to": [
+        {
+          "shell_command": "open -a 'Gyazo Video.app'"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}
