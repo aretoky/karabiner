@@ -2,11 +2,19 @@
 
 macOS用キーボードリマッパー「Karabiner-Elements」の個人設定リポジトリ。JISキーボード（英数/かなキー付き）向けのカスタムキーマッピングを管理している。
 
-## アクティブプロファイル: `try20250310`
+## アクティブプロファイル: `ts-migration`
+
+ルールは [karabiner.ts](https://github.com/evan-liu/karabiner.ts) を使い `ts/` 配下のTypeScriptで管理している。
+
+### ルール編集フロー
+
+1. `ts/src/rules/` 配下のTSを編集
+2. `cd ts && npm run build` — `karabiner.json` の `ts-migration` プロファイルに書き出される（Karabiner-Elementsは自動リロード）
+3. `git diff karabiner.json` で意図した差分か確認
 
 ## キーバインド一覧
 
-### 英数キーレイヤー (`eisu-hjkl.json`)
+### 英数キーレイヤー (`ts/src/rules/eisu-layer.ts`)
 
 英数キーをホールドしながら他のキーを押すことで、ホームポジションから手を離さずに各種操作が可能。英数キー単押しは通常の英数キーとして動作する。
 
@@ -81,17 +89,19 @@ macOS用キーボードリマッパー「Karabiner-Elements」の個人設定リ
 | `v` | 動画キャプチャ (Option+Shift+v) |
 | `o` | 最新のGyazoを開く |
 
-### @キー / Tab デュアルロール (`at_to_option.json`)
+### デュアルロールキー (`ts/src/rules/dual-role.ts`)
 
 | キー | タップ | ホールド |
 |------|--------|----------|
+| 左Control | Escape（＋英数モード切替） | Control |
 | `@` (英語入力時) | `@` | Option |
 | `@` (日本語入力時) | `,` | Option |
 | `Tab` | Tab | Option |
 
-※ タイムアウト: タップ175ms / ホールド判定75ms
+※ タイムアウト: `@`/Tabはタップ175ms・ホールド判定75ms、左Controlはタップ100ms・ホールド判定50ms
+※ 左Shift単独タップ→Enterのルールも定義されているが無効化中（`enabled: false`）
 
-### スペース数字レイヤー (`space_number_layer.json`)
+### スペース数字レイヤー (`ts/src/rules/space-layer.ts`)
 
 スペースキーをホールドしながらホームロウのキーを押すと数字が入力される。スペースキー単押しは通常のスペースとして動作する。
 
@@ -109,43 +119,49 @@ macOS用キーボードリマッパー「Karabiner-Elements」の個人設定リ
 | Space + `;` | `0` |
 | Space + `'` | `-` |
 
-### セミコロン → Enter (`semicolon_enter.json`)
+### セミコロン → Enter / Shift (`ts/src/rules/dual-role.ts`)
 
-`;`（セミコロン）キーの単押しで Enter が入力される。
+`;`（セミコロン）キーのタップで Enter、ホールドで Shift として動作する。
 
 ※ 英数+`;` でセミコロン本来の入力が可能（英数キーレイヤー側で対応）
 
-### Slack操作 (`slack.json`)
+### Slack操作 (`ts/src/rules/slack.ts`)
 
 Slack アプリ内でのみ有効。
 
 | キー | 動作 |
 |------|------|
 | Ctrl + Tab | 未読の次のチャンネル/DMへ移動 (Option+Shift+↓) |
+| Cmd + Shift + Tab | 未読の前のチャンネル/DMへ移動 (Option+Shift+↑) |
 
-### CapsLock → Gyazo (`gyazo.json`)
+### CapsLock → Gyazo (`ts/src/rules/gyazo.ts`)
 
 | キー | 動作 |
 |------|------|
 | CapsLock 単押し | Gyazo 起動 |
 | Shift + CapsLock | Gyazo Video 起動 |
 
-### NICOLA配列 (`1602908246.json`)
+### NICOLA配列 (`ts/src/nicola.json`)
 
 日本語入力時に有効な親指シフト（NICOLA Type F）配列。98個のマッピングで、同時打鍵による日本語入力を実現する。
 
 ## ファイル構成
 
 ```
-karabiner.json                          # メイン設定（Karabiner-ElementsのGUIが管理）
-assets/complex_modifications/
-  ├── eisu-hjkl.json                    # 英数キーレイヤー（中核設定）
-  ├── at_to_option.json                 # @/Tab → Option デュアルロール
-  ├── space_number_layer.json           # スペース数字レイヤー
-  ├── semicolon_enter.json              # セミコロン → Enter
-  ├── slack.json                        # Slack用キーバインド
-  ├── gyazo.json                        # CapsLock → Gyazo
-  ├── 1602908246.json                   # NICOLA配列（親指シフト）
-  ├── *_not_use.json                    # アーカイブされたルール
-automatic_backups/                      # Karabiner自動バックアップ
+karabiner.json                          # メイン設定（`npm run build` とGUIが更新。直接編集しない）
+ts/
+  ├── src/
+  │   ├── index.ts                      # writeToProfile() のエントリポイント
+  │   ├── rules.ts                      # ルールの組み立て（順序はマッチング優先度に影響）
+  │   ├── nicola.json                   # NICOLA配列（機械生成のためJSONのまま同梱）
+  │   └── rules/
+  │       ├── dual-role.ts              # Control/@/Tab/セミコロン等のデュアルロール
+  │       ├── eisu-layer.ts             # 英数キーレイヤー（中核設定）
+  │       ├── space-layer.ts            # スペース数字レイヤー
+  │       ├── slack.ts                  # Slack用キーバインド
+  │       └── gyazo.ts                  # CapsLock → Gyazo
+  ├── reference/                        # 移行元の旧ルールJSON（参照用）
+  └── scripts/compare_rules.py          # ビルド出力と既存プロファイルの意味的diff検証
+assets/complex_modifications/           # 旧来の手書きルールJSON（移行前のソース。参照用）
+automatic_backups/                      # Karabiner自動バックアップ（Git管理外）
 ```

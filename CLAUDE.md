@@ -34,8 +34,8 @@ macOS用キーボードリマッパー「Karabiner-Elements」の設定リポジ
 
 `karabiner.json` 内に複数プロファイルが存在する:
 
-- **`try20250310`** — 現在のアクティブプロファイル（GUI管理、13ルール）
-- **`ts-migration`** — karabiner.ts のビルド先（`try20250310` と同一内容。動作確認後にこちらへ切り替え予定）
+- **`ts-migration`** — 現在のアクティブプロファイル。karabiner.ts のビルド先（13ルール）
+- **`try20250310`** — 移行前のアクティブプロファイル（GUI管理、`ts-migration` と同一内容。移行元として保持）
 
 含まれるルール（`ts/src/rules.ts` の順）: 左Shift→Enter（無効化中）、Control→Escape、`@`/Tabのデュアルロール、スペース数字レイヤー（3ルール）、英数キーレイヤー（後述）、NICOLA配列、セミコロン→Enter/Shift、Slack用Ctrl+Tab、CapsLockでGyazo起動
 
