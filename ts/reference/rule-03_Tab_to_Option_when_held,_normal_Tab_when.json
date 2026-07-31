@@ -1,0 +1,30 @@
+{
+  "description": "Tab to Option when held, normal Tab when tapped",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "tab",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 175,
+        "basic.to_if_held_down_threshold_milliseconds": 75
+      },
+      "to_if_alone": [
+        {
+          "key_code": "tab"
+        }
+      ],
+      "to_if_held_down": [
+        {
+          "key_code": "left_option"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}

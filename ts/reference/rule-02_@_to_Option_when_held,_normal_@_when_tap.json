@@ -1,0 +1,87 @@
+{
+  "description": "@ to Option when held, normal @ when tapped",
+  "manipulators": [
+    {
+      "conditions": [
+        {
+          "input_sources": [
+            {
+              "input_source_id": "^com\\.apple\\.keylayout\\.US$"
+            },
+            {
+              "input_mode_id": "^com\\.apple\\.inputmethod\\.Japanese\\.FullWidthRoman"
+            },
+            {
+              "language": "^en$"
+            }
+          ],
+          "type": "input_source_if"
+        }
+      ],
+      "from": {
+        "key_code": "open_bracket",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 175,
+        "basic.to_if_held_down_threshold_milliseconds": 75
+      },
+      "to_if_alone": [
+        {
+          "key_code": "open_bracket"
+        }
+      ],
+      "to_if_held_down": [
+        {
+          "key_code": "left_option"
+        }
+      ],
+      "type": "basic"
+    },
+    {
+      "conditions": [
+        {
+          "input_sources": [
+            {
+              "input_source_id": "^com\\.apple\\.inputmethod\\.Japanese$"
+            },
+            {
+              "input_mode_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.RoamajiTyping\\.Japanese"
+            },
+            {
+              "language": "^ja$"
+            }
+          ],
+          "type": "input_source_if"
+        }
+      ],
+      "from": {
+        "key_code": "open_bracket",
+        "modifiers": {
+          "optional": [
+            "any"
+          ]
+        }
+      },
+      "parameters": {
+        "basic.to_if_alone_timeout_milliseconds": 175,
+        "basic.to_if_held_down_threshold_milliseconds": 75
+      },
+      "to_if_alone": [
+        {
+          "key_code": "comma"
+        }
+      ],
+      "to_if_held_down": [
+        {
+          "key_code": "left_option"
+        }
+      ],
+      "type": "basic"
+    }
+  ]
+}
