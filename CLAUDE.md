@@ -51,7 +51,7 @@ macOS用キーボードリマッパー「Karabiner-Elements」の設定リポジ
 - **英数+q** → Ctrl+Space
 - **英数+;** → セミコロン（Enter化対策）
 - **英数+f → 2nd letter** — アプリランチャー（`press_application_select_key` 変数使用）:
-  - `t`:TaskChute Cloud 2, `s`:Slack, `b`:Biscuit, `e`:cmux/IntelliJターミナル, `i`:IntelliJ, `g`:Chrome, `a`:Activity Monitor, `c`:Cosense
+  - `t`:TaskChute Cloud 2, `s`:Slack, `b`:Biscuit, `e`:cmux/IntelliJターミナル, `i`:IntelliJ, `g`:Chrome, `a`:Activity Monitor, `c`:Cosense, `l`:Claude
 - **英数+g → 2nd letter** — Gyazo操作（`press_gyazo_select_key` 変数使用）:
   - `c`:キャプチャ, `a`:アクティブウィンドウ, `v`:動画, `o`:最新Gyazo
 - **英数+かな → a/s/hjkl/;/:** — メディアキーレイヤー（`eisu_kana_layer` 変数使用）: 明るさ・再生・音量操作
