@@ -115,6 +115,11 @@ export const eisuLayer = rule('Change EISU + *').manipulators([
       "open -a '/Users/aretoky/Applications/Chrome Apps.localized/Cosense.app'",
     )
     .toVar('press_application_select_key', 0),
+  map('l')
+    .description('メタキー+lでClaude起動')
+    .condition(ifAppSelectKey)
+    .to$("open -a 'Claude.app'")
+    .toVar('press_application_select_key', 0),
   map('f', null, 'any')
     .description('EISUU+fでメタキー発動')
     .condition(ifVar('press_application_select_key', 0), ifEisuu)
