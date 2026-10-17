@@ -118,6 +118,10 @@ macOS用キーボードリマッパー「Karabiner-Elements」の個人設定リ
 | Space + `l` | `9` |
 | Space + `;` | `0` |
 | Space + `'` | `-` |
+| Space + `/` | `^` (equal_sign) |
+| Space + `m` | `¥` (international3) |
+| Space + `n` | `+` (Shift+`;`) |
+| Space + `v` | `¥` (international3) |
 
 ### セミコロン → Enter / Shift (`ts/src/rules/dual-role.ts`)
 
