@@ -29,7 +29,7 @@ export const spaceLayerKeyMapping = rule(
     map('l', null, 'any').to('9'),
     map('quote', null, 'any').to('hyphen'),
     map('slash', null, 'any').to('equal_sign'),
-    map('m', null, 'any').to('equal_sign'),
+    map('m', null, 'any').to('international3'),
     map('n', null, 'any').to('semicolon', 'left_shift'),
     map('v', null, 'any').to('international3'),
   ]),
